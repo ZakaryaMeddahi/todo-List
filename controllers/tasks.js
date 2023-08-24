@@ -1,9 +1,10 @@
+const { NotFoundError } = require("../errors");
 
 let tasks = [];
 
 // Get All Tasks
 const getTasks = (req, res) => {
-  res.status(200).render('index');
+  res.status(200).render('index', { tasks });
 }
 
 // Create New Task
@@ -41,7 +42,12 @@ const updateTask = (req, res) => {
 // Delete Single Task
 const deletetask = (req, res) => {
   const { id: taskId } = req.params;
+  const length = tasks.length;
   tasks = tasks.filter(task => task['id'] !== Number(taskId));
+  if(tasks.length === length) {
+    const err = new NotFoundError(`No Task With This The ID ${taskId}`);
+    throw err;
+  }
   console.log(tasks);
   res.status(200).json({ success: true, message: 'Task has been deleted successfully' });
 }

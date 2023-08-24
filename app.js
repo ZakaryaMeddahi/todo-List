@@ -6,8 +6,11 @@ const app = express();
 // Set template engine
 app.set('view engine', 'pug');
 
+app.use(express.static('public'));
+
 // Routes
 const tasksRouter = require('./routes/tasks');
+const errorHandler = require('./middleware/error-handler');
 
 // Middlewares
 app.use(express.json());
@@ -15,6 +18,7 @@ app.use(express.json());
 app.use('/', tasksRouter);
 
 app.use(express.static('public'));
+app.use(errorHandler);
 
 // Start App
 const port = process.env.PORT || 5000;

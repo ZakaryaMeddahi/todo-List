@@ -14,6 +14,8 @@ app.use(express.json());
 
 app.use('/', tasksRouter);
 
+app.use(express.static('public'));
+
 // Start App
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

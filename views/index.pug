@@ -1,0 +1,23 @@
+include ./includes/vars.pug
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        include ./includes/css.pug
+        title Document
+    body 
+        #content
+            h1#title Tasks: 
+            #tasks
+                each task , index in tasks
+                    div(class = 'task task' + index)
+                        p= index + 1 + ". " + task
+                        |
+                        |
+                        <i class="fa-solid fa-square-check"></i>
+                        |
+                        |
+                        <i class="fa-solid fa-trash"></i>
+
+    include ./includes/script.pug

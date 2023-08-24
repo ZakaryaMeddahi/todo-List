@@ -1,6 +1,7 @@
 ### Tasks
-- [ ] **Install Express, nodemon and dotenv**
-- [ ] **Create Routes (POST, GET, PUT, DELETE)**
+- [x] **Install Express, nodemon and dotenv**
+- [x] **Create Routes (POST, GET, PUT, DELETE)**
+- [ ] **Handle Errors**
 - [ ] **Install Pug**
 - [ ] **Create Views (pug files)**
 - [ ] **Add styling in public file**

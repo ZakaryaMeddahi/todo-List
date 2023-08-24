@@ -15,7 +15,7 @@ body {
     width: 60%;
     height: 70%; 
     display: grid;
-    grid-template-rows: 15% auto;
+    grid-template-rows: 15% auto auto;
     justify-items: start;
     align-items: baseline;
 
@@ -24,10 +24,11 @@ body {
     }
 
     & > #tasks {
+        width: 100%;
         font-size: 32px;
         color: aliceblue;
 
-        & > .task {
+        & > .Card-Task {
             display: grid;
             gap: 15px;
             grid-template-columns: 1fr auto auto;
@@ -49,6 +50,7 @@ body {
                 font-size: 70%;
                 color: rgba(255, 30, 30, 0.819);
             }
+
         }
     }
 }

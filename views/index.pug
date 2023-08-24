@@ -11,12 +11,12 @@ html(lang="en")
             h1#title Tasks: 
             #tasks
                 each task , index in tasks
-                    div(class = 'task')
-                        p(class='task-txt' id= 'task' + (index + 1) iden= "" + (index+1))= index + 1 + ". " + task
+                    div(class = 'Card-Task' id = "Card-Task" + (index + 1) iden= "" + (index+1))
+                        p(class='task-txt' id= 'task' + (index + 1) iden= "" + (index+1))=  "- " + task
                         div(class="check-Box" id="check-Box" + (index + 1) iden = "" + (index + 1))
                         |
                         |
-                        <i class="fa-solid fa-trash"></i>
+                        <i class="fa-solid fa-trash" id="#{index+1}"></i>
                 else 
                     p.task No Tasks
 

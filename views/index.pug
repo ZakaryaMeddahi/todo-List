@@ -11,11 +11,9 @@ html(lang="en")
             h1#title Tasks: 
             #tasks
                 each task , index in tasks
-                    div(class = 'task task' + index)
-                        p= index + 1 + ". " + task
-                        |
-                        |
-                        <i class="fa-solid fa-square-check"></i>
+                    div(class = 'task')
+                        p(class='task-txt' id= 'task' + (index + 1) iden= "" + (index+1))= index + 1 + ". " + task
+                        div(class="check-Box" id="check-Box" + (index + 1) iden = "" + (index + 1))
                         |
                         |
                         <i class="fa-solid fa-trash"></i>

@@ -38,11 +38,15 @@ body {
             border-radius: 5px;
             align-items: center;
 
-            & > .fa-solid {
-                font-size: 70%;
+            & > .check-Box {
+                width: 20px;
+                height: 20px;
+                border: 2.5px solid darkgray;
+                border-radius: 5px;
             }
-
+            
             & > .fa-trash {
+                font-size: 70%;
                 color: rgba(255, 30, 30, 0.819);
             }
         }

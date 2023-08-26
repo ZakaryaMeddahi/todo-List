@@ -45,12 +45,22 @@ body {
                 border: 2.5px solid darkgray;
                 border-radius: 5px;
             }
+
+            & > input {
+                width: 20px;
+                height: 20px;
+            }
             
             & > .fa-trash {
                 font-size: 70%;
                 color: rgba(255, 30, 30, 0.819);
             }
 
+        }
+
+        & > .no-tasks {
+            color: grey;
+            text-align: center;
         }
     }
 

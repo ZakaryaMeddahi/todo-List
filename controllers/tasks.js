@@ -1,4 +1,4 @@
-const { NotFoundError } = require("../errors");
+const { NotFoundError, BadRequestError } = require("../errors");
 
 let tasks = [];
 
@@ -10,10 +10,15 @@ const getTasks = (req, res) => {
 // Create New Task
 const createTask = (req, res) => {
   const { title, isCompleted } = req.body;
+
+  if(!title) {
+    const err = new BadRequestError('Please Provide A Title For The Task');
+    throw err;
+  }
   const task = {
     id: Date.now(),
     title,
-    isCompleted
+    isCompleted: isCompleted || false
   }
   tasks.push(task);
   console.log(tasks);
@@ -23,18 +28,24 @@ const createTask = (req, res) => {
 // Update Task
 const updateTask = (req, res) => {
   const { title, isCompleted } = req.body;
+  const taskId = Number(req.params.id);
+  let modified = false;
   let updatedTask = {
     title,
     isCompleted
   }
   tasks.forEach(task => {
-    const taskId = Number(req.params.id);
     console.log(task['id'], ' === ', taskId);
     if(task['id'] === taskId) {
       updatedTask = Object.assign(task, updatedTask);
+      modified = true;
       return;
     }
   });
+  if(!modified) {
+    const err = new NotFoundError(`No Task With The ID ${taskId}`);
+    throw err;
+  }
   console.log(tasks);
   res.status(200).json({ success: true, updatedTask });
 }
@@ -45,7 +56,7 @@ const deletetask = (req, res) => {
   const length = tasks.length;
   tasks = tasks.filter(task => task['id'] !== Number(taskId));
   if(tasks.length === length) {
-    const err = new NotFoundError(`No Task With This The ID ${taskId}`);
+    const err = new NotFoundError(`No Task With The ID ${taskId}`);
     throw err;
   }
   console.log(tasks);

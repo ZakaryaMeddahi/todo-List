@@ -10,15 +10,27 @@ html(lang="en")
         #content
             h1#title Tasks: 
             #tasks
-                each task , index in tasks
-                    div(class = 'Card-Task' id = "Card-Task" + (index + 1) iden= "" + (index+1))
-                        p(class='task-txt' id= 'task' + (index + 1) iden= "" + (index+1))=  "- " + task
-                        div(class="check-Box" id="check-Box" + (index + 1) iden = "" + (index + 1))
+                //- each task , index in tasks
+                //-     div(class = 'Card-Task' id = "Card-Task" + (index + 1) iden= "" + (index+1))
+                //-         p(class='task-txt' id= 'task' + (index + 1) iden= "" + (index+1))=  "- " + task
+                //-         div(class="check-Box" id="check-Box" + (index + 1) iden = "" + (index + 1))
+                //-         |
+                //-         |
+                //-         <i class="fa-solid fa-trash" id="#{index+1}"></i>
+                //- else 
+                //-     p.task No Tasks
+
+                each task in tasks
+                    div(class ='Card-Task' id ="Card-Task" data-id=`${task.id}`)
+                        p(class='task-txt' id='task' style=`text-decoration: ${
+                            task.isCompleted ? 'line-through' : 'none'
+                        }`) #{ task.title }
+                        input.check-box(type="checkbox" checked=task.isCompleted)
                         |
                         |
-                        <i class="fa-solid fa-trash" id="#{index+1}"></i>
+                        <i class="fa-solid fa-trash"></i>
                 else 
-                    p.task No Tasks
+                    p.no-tasks No Tasks
 
             #add-Task 
                 input(type="text" id="task-input")

@@ -6,9 +6,13 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         include ./includes/css.pug
         title To Do List
-    body 
+    body
         #content
             h1#title Tasks: 
+            #add-Task
+                input(type="text" id="task-input")
+                input(type="submit", value="Add Task" id="btn")
+                
             #tasks
                 each task , index in tasks
                     div(class = 'Card-Task' id = "Card-Task" + (index + 1) iden= "" + (index+1))
@@ -19,9 +23,5 @@ html(lang="en")
                         <i class="fa-solid fa-trash" id="#{index+1}"></i>
                 else 
                     p.task No Tasks
-
-            #add-Task 
-                input(type="text" id="task-input")
-                input(type="submit", value="Add Task" id="btn")
 
     include ./includes/script.pug

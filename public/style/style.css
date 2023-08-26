@@ -15,7 +15,8 @@ body {
     width: 60%;
     height: 70%; 
     display: grid;
-    grid-template-rows: 15% auto auto;
+    gap: 20px;
+    grid-template-rows: auto auto auto;
     justify-items: start;
     align-items: baseline;
 

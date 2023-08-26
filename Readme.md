@@ -6,4 +6,4 @@
 - [x] **Create Views (pug files)**
 - [x] **Add styling in public file**
 - [ ] **Create JS Functions in public folder to send requests**
-- [ ] **Use tillwind in styling**
+- [x] **Use tailwindcss in styling**

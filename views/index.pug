@@ -5,11 +5,12 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         include ./includes/css.pug
+        link(rel="stylesheet", href="/style/output.css")
         title To Do List
-    body 
-        #content
-            h1#title Tasks: 
-            #tasks
+    body(class="h-screen flex justify-center items-center") 
+        #content(class="h-3/4 w-3/5 grid grid-rows-auto jsutify-start items-baseline")
+            h1#title(class="text-6xl") Tasks: 
+            #tasks(class="h-full text-3xl text-stone-300")
                 //- each task , index in tasks
                 //-     div(class = 'Card-Task' id = "Card-Task" + (index + 1) iden= "" + (index+1))
                 //-         p(class='task-txt' id= 'task' + (index + 1) iden= "" + (index+1))=  "- " + task
@@ -21,19 +22,19 @@ html(lang="en")
                 //-     p.task No Tasks
 
                 each task in tasks
-                    div(class ='Card-Task' id ="Card-Task" data-id=`${task.id}`)
-                        p(class='task-txt' id='task' style=`text-decoration: ${
+                    div(class ="Card-Task grid gap-3.5 grid-cols-auto bg-amber-200 p-2.5 mb-1.5 border border-solid border-gray-400 rounded items-center" id ="Card-Task" data-id=`${task.id}`)
+                        p(class="task-txt text-xl text-black" id="task" style=`text-decoration: ${
                             task.isCompleted ? 'line-through' : 'none'
                         }`) #{ task.title }
-                        input.check-box(type="checkbox" checked=task.isCompleted)
+                        input.check-box(class="h-5 w-5" type="checkbox" checked=task.isCompleted)
                         |
                         |
-                        <i class="fa-solid fa-trash"></i>
+                        <i class="fa-solid fa-trash text-xl text-red-700 cursor-pointer"></i>
                 else 
-                    p.no-tasks No Tasks
+                    p.no-tasks(class="text-gray-400 text-center") No Tasks
 
-            #add-Task 
-                input(type="text" id="task-input")
-                input(type="submit", value="Add Task" id="btn")
+            #add-Task(class="w-full flex justify-between items-center bg-amber-200 p-9")
+                input(class="w-3/4 pl-2.5 h-10 text-lg" type="text" id="task-input")
+                input(class="bg-green-400 text-amber-200 text-lg border-0 rounded py-2 px-11" type="submit", value="Add Task" id="btn")
 
     include ./includes/script.pug

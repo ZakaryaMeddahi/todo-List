@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.grid-rows-auto {
+  grid-template-rows: 15% auto auto;
+}
+
+.grid-cols-auto {
+  grid-template-columns: 1fr auto auto;
+}

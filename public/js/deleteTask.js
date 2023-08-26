@@ -1,5 +1,3 @@
-var tasks = ['Listning English In Youtube', 'Practice English Speaking With People In Discord','Read Books','Write Short graph', 'play valo']
-
 const deleteIcons = document.querySelectorAll(".fa-trash");
 const cardTask = document.querySelectorAll(".Card-Task");
 

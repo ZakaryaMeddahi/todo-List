@@ -5,7 +5,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         include ./includes/css.pug
-        title Document
+        title To Do List
     body 
         #content
             h1#title Tasks: 
@@ -19,5 +19,9 @@ html(lang="en")
                         <i class="fa-solid fa-trash" id="#{index+1}"></i>
                 else 
                     p.task No Tasks
+
+            #add-Task 
+                input(type="text" id="task-input")
+                input(type="submit", value="Add Task" id="btn")
 
     include ./includes/script.pug

@@ -5,5 +5,5 @@
 - [x] **Install Pug**
 - [x] **Create Views (pug files)**
 - [x] **Add styling in public file**
-- [ ] **Create JS Functions in public folder to send requests**
+- [x] **Create JS Functions in public folder to send requests**
 - [x] **Use tailwindcss in styling**

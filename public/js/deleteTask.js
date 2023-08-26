@@ -1,5 +1,4 @@
 const deleteIcons = document.querySelectorAll(".fa-trash");
-const cardTask = document.querySelectorAll(".Card-Task");
 
 // deleteIcons.forEach(element => {
 //     element.addEventListener("click", (event) => {
@@ -18,6 +17,7 @@ import deleteRequest from "./modules/deleteRequest.js";
 deleteIcons.forEach(icon => {
     icon.addEventListener('click', event => {
         const task = event.target.parentElement;
+        const id = task.dataset.id;
         deleteRequest(task, id);
     });
 })

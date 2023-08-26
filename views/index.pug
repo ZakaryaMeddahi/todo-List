@@ -7,9 +7,13 @@ html(lang="en")
         include ./includes/css.pug
         link(rel="stylesheet", href="/style/output.css")
         title To Do List
-    body(class="h-screen flex justify-center items-center") 
-        #content(class="h-3/4 w-3/5 grid grid-rows-auto jsutify-start items-baseline")
-            h1#title(class="text-6xl") Tasks: 
+
+    body(class="h-screen flex justify-center items-start pt-10") 
+        #content(class="h-auto w-3/5")
+            h1#title(class="text-6xl mb-5") Tasks: 
+            #add-Task(class="w-full h-10 flex justify-between items-center bg-amber-200 p-9 mb-3")
+                input(class="w-3/4 pl-2.5 h-10 text-lg" type="text" id="task-input")
+                input(class="bg-green-400 text-amber-200 text-lg border-0 rounded py-2 px-11" type="submit", value="Add Task" id="btn")
             #tasks(class="h-full text-3xl text-stone-300")
                 //- each task , index in tasks
                 //-     div(class = 'Card-Task' id = "Card-Task" + (index + 1) iden= "" + (index+1))
@@ -32,9 +36,5 @@ html(lang="en")
                         <i class="fa-solid fa-trash text-xl text-red-700 cursor-pointer"></i>
                 else 
                     p.no-tasks(class="text-gray-400 text-center") No Tasks
-
-            #add-Task(class="w-full flex justify-between items-center bg-amber-200 p-9")
-                input(class="w-3/4 pl-2.5 h-10 text-lg" type="text" id="task-input")
-                input(class="bg-green-400 text-amber-200 text-lg border-0 rounded py-2 px-11" type="submit", value="Add Task" id="btn")
 
     include ./includes/script.pug

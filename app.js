@@ -15,6 +15,11 @@ const errorHandler = require('./middleware/error-handler');
 // Middlewares
 app.use(express.json());
 
+// check API health
+app.get('/health', (req, res) => {
+  res.status(200).json({status: 'success', message: 'TODO LIST API IS HEALTHY'})
+})
+
 app.use('/', tasksRouter);
 
 app.use(express.static('public'));
